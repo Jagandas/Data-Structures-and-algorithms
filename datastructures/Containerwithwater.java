@@ -1,0 +1,29 @@
+package firstweek;
+
+public class Containerwithwater {
+	public static int maxarea(int height[]) {
+		int left=0;
+		int right=height.length-1;
+		int maxwater=0;
+		
+		while(left<right) {
+			int h=Math.min(height[left], height[right]);
+			int width=right-left;
+			int area=h*width;
+			maxwater=Math.max(maxwater, area);
+			if(height[left]<height[right]) {
+				left++;
+			}
+			else {
+				right--;
+			}
+		}
+		
+		return maxwater;
+	}
+	public static void main(String[]args) {
+		int height[]= {1,8,6,2,5,4,8,3,7};
+		
+		System.out.println(maxarea(height));
+	}
+}
